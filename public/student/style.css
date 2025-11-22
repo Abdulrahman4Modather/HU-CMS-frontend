@@ -31,102 +31,6 @@ body {
     min-height: 100vh;
 }
 
-/* === Header Styles (login/signup) === */
-header {
-    width: 100%;
-    background-color: #064566;
-    /* Dark blue background */
-    color: white;
-    padding: 20px 0;
-}
-
-.header-content {
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* Adjusted for image alignment */
-    padding: 0 40px;
-    width: 100%;
-}
-
-.header-content h1 {
-    font-size: 70px;
-    font-weight: 700;
-    margin-right: 40px;
-    /* Space between logo and title */
-    font-family: 'Cairo', sans-serif;
-    /* Use Cairo for 'شكوتي' */
-    direction: rtl;
-    /* For Arabic text */
-}
-
-.logo {
-    height: 100px;
-    /* Adjust height as needed */
-    width: auto;
-    /* Move logo to the left, or adjust flex behavior */
-    order: -1;
-}
-
-/* === Form Styles (login/signup) === */
-.form-container {
-    padding: 40px 20px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.form-box {
-    background-color: white;
-    padding: 30px 40px;
-    border-radius: 5px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 450px;
-    display: flex;
-    flex-direction: column;
-}
-
-.form-box label {
-    margin-top: 15px;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-}
-
-.form-box input[type="text"],
-.form-box input[type="password"] {
-    padding: 10px 12px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    width: 100%;
-    margin-bottom: 5px;
-    font-size: 16px;
-}
-
-.password-container {
-    display: flex;
-    align-items: center;
-}
-
-.password-container input {
-    flex-grow: 1;
-    margin-bottom: 0;
-}
-
-.show-btn {
-    background-color: #eee;
-    border: 1px solid #ccc;
-    border-left: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 0 3px 3px 0;
-    height: 40px;
-    font-size: 14px;
-    color: #555;
-}
-
 /* === Generic Button Styles === */
 .btn {
     padding: 10px 20px;
@@ -140,14 +44,14 @@ header {
     margin-top: 15px;
 }
 
-.btn-black {
-    background-color: black;
+.btn-primary {
+    background-color: #062d40;
     color: white;
-    border: 1px solid black;
+    border: 1px solid #062d40;
 }
 
-.btn-black:hover {
-    background-color: #333;
+.btn-primary:hover {
+    background-color: #064566;
 }
 
 .btn-transparent {
@@ -256,15 +160,6 @@ header {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.btn-create-new img {
-    height: 20px;
-    width: 20px;
-    margin-right: 8px;
-    filter: invert(1);
-    /* White icon */
-}
-
-
 /* === Dialog Overlay (New Complaint) === */
 .dialog-overlay {
     position: fixed;
@@ -332,7 +227,7 @@ header {
     border: 1px solid white;
 }
 
-.dialog-actions .btn-black {
+.dialog-actions .btn-primary {
     background-color: #064566;
     /* Match the dark blue, or a bit darker */
     color: white;

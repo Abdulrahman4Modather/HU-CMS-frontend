@@ -1,9 +1,3 @@
-// Check if user is logged in
-const student = JSON.parse(localStorage.getItem("student"));
-if (!student) {
-    window.location.href = "/login.html";
-}
-
 // محاكاة عملية تسجيل الخروج والعودة لصفحة الدخول
 function logout() {
     alert("Logging out...");
@@ -38,22 +32,15 @@ function submitComplaint() {
         const student = JSON.parse(localStorage.getItem("student"));
         const complaints = JSON.parse(localStorage.getItem("complaints")) || [];
 
-        const departmentId = student.departmentId;
-        const deptHead = employees.find(
-            (e) =>
-                e.departmentId === departmentId &&
-                e.role === "Head of Department"
-        );
-
         const newComplaint = {
             id: `C${Date.now()}`,
             studentId: student.id,
-            employeeId: deptHead,
-            departmentId: departmentId,
             title: name,
             description: description,
-            status: "Pending",
             date: new Date().toISOString().split("T")[0],
+            status: "Pending",
+            employeeId: "",
+            departmentId: "",
         };
 
         complaints.push(newComplaint);
@@ -91,21 +78,56 @@ function updateComplaintsView(complaint) {
 }
 
 // تحميل الشكاوى عند تحميل الصفحة
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
     const student = JSON.parse(localStorage.getItem("student"));
-    const allComplaints = JSON.parse(localStorage.getItem("complaints")) || [];
-    const studentComplaints = allComplaints.filter(
+
+    // get the necessary data
+    let [complaints, employees] = await Promise.all([
+        fetch("/storage/complaints.json").then((res) => res.json()),
+        fetch("/storage/employees.json").then((res) => res.json()),
+    ]);
+
+    // Get complaints from local storage and merge them
+    const localComplaints =
+        JSON.parse(localStorage.getItem("complaints")) || [];
+    complaints = [
+        ...complaints,
+        ...localComplaints.filter(
+            (lc) => !complaints.find((c) => c.id === lc.id)
+        ),
+    ];
+
+    const studentComplaints = localComplaints.filter(
         (c) => c.studentId === student.id
     );
 
-    if (studentComplaints.length > 0) {
-        document.getElementById("no-complaints-message").style.display = "none";
-        const table = document.getElementById("complaints-table");
-        table.style.display = "table";
-        const tbody = table.querySelector("tbody");
-        tbody.innerHTML = ""; // Clear existing rows
-        studentComplaints.forEach((complaint) => {
-            updateComplaintsView(complaint);
-        });
-    }
+    const complaintData = studentComplaints.map((complaint) => {
+        const employee = employees.find((e) => e.id === complaint.employeeId);
+        return {
+            ...complaint,
+            employeeName: employee ? employee.name : "N/A",
+        };
+    });
+
+    const renderTable = (data) => {
+        if (data.length === 0) {
+            tableBody.innerHTML = `<tr><td colspan="5" class="text-center">No complaints found.</td></tr>`;
+            return;
+        }
+        tableBody.innerHTML = data
+            .map(
+                (c) => `
+            <tr>
+                <td>${c.id}</td>
+                <td>${c.title}</td>
+                <td>${c.date}</td>
+                <td>${c.status}</td>
+                <td>${c.employeeName}</td>
+            </tr>
+        `
+            )
+            .join("");
+    };
+
+    renderTable(complaintData)
 });
