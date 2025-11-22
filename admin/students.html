@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Students — HU CMS</title>
+
+        <link href="/public/admin/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="/public/admin/css/all.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/public/admin/css/style.css" />
+
+        <script src="/public/admin/js/bootstrap.bundle.min.js"></script>
+        <script src="/public/admin/js/all.min.js"></script>
+    </head>
+
+    <body>
+        <!-- Header -->
+        <div id="headerContainer"></div>
+
+        <!-- Mobile Sidebar -->
+        <div
+            class="offcanvas bg-hu-dark offcanvas-end"
+            tabindex="-1"
+            id="offcanvasSidebar"
+            aria-labelledby="offcanvasSidebarLabel"
+        >
+            <div class="offcanvas-header">
+                <h5
+                    class="offcanvas-title text-white"
+                    id="offcanvasSidebarLabel"
+                >
+                    Menu
+                </h5>
+                <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"
+                ></button>
+            </div>
+            <div class="offcanvas-body p-0">
+                <div id="sidebarContainerMobile"></div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Main -->
+                <main
+                    class="col-lg-10 container d-lg-block p-4 bg-hu-light gap-5"
+                >
+                    <div class="row mb-2">
+                        <h1>Students</h1>
+                    </div>
+
+                    <!-- Search & Filter -->
+                    <section class="row p-2 bg-white border border-3 rounded-4">
+                        <div class="filter">
+                            <div class="input-group">
+                                <p class="input-group-text m-auto">
+                                    Search & Filter:
+                                </p>
+                                <input
+                                    type="text"
+                                    id="search-input"
+                                    class="form-control w-25"
+                                    placeholder="Search by student ID/ name"
+                                />
+                                <select id="faculty-filter" class="form-select">
+                                    <option value="">All Faculties</option>
+                                </select>
+                                <select
+                                    id="department-filter"
+                                    class="form-select"
+                                >
+                                    <option value="">All Departments</option>
+                                </select>
+                                <select id="level-filter" class="form-select">
+                                    <option value="">All Levels</option>
+                                    <option value="1">Freshmen 1</option>
+                                    <option value="2">Sophomore 2</option>
+                                    <option value="3">Junior 3</option>
+                                    <option value="4">Senior 4</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Students Table -->
+                    <div class="row equal-row mt-3 gap-3 d-flex">
+                        <section
+                            class="col-12 col-lg p-2 bg-white border border-3 rounded-4 d-flex flex-column justify-content-between gap-1"
+                        >
+                            <div class="table container">
+                                <table class="table">
+                                    <thead>
+                                        <th>id</th>
+                                        <th>name</th>
+                                        <th>faculty</th>
+                                        <th>department</th>
+                                        <th>level</th>
+                                        <th>complaints</th>
+                                        <th>action</th>
+                                    </thead>
+                                    <tbody id="students-table-body"></tbody>
+                                </table>
+                            </div>
+                        </section>
+                    </div>
+                </main>
+
+                <!-- Sidebar -->
+                <aside class="col-lg-2 d-none d-lg-block p-0">
+                    <div id="sidebarContainer"></div>
+                </aside>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="/public/admin/js/main.js"></script>
+        <script src="/public/admin/js/students.js"></script>
+    </body>
+</html>

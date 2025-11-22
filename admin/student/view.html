@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Student Profile — HU CMS</title>
+
+        <!-- Bootstrap + Icons + Chart.js -->
+
+        <link href="/public/admin/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="/public/admin/css/all.min.css" rel="stylesheet" />
+        <link href="/public/admin/css/style.css" rel="stylesheet" />
+
+        <script src="/public/admin/js/bootstrap.bundle.min.js"></script>
+        <script src="/public/admin/js/all.min.js"></script>
+        <script src="/public/admin/js/chart.umd.min.js"></script>
+    </head>
+    <body>
+        <!-- Header -->
+        <div id="headerContainer"></div>
+
+        <!-- Mobile Sidebar -->
+        <div
+            class="offcanvas bg-hu-dark offcanvas-end"
+            tabindex="-1"
+            id="offcanvasSidebar"
+            aria-labelledby="offcanvasSidebarLabel"
+        >
+            <div class="offcanvas-header">
+                <h5
+                    class="offcanvas-title text-white"
+                    id="offcanvasSidebarLabel"
+                >
+                    Menu
+                </h5>
+                <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"
+                ></button>
+            </div>
+            <div class="offcanvas-body p-0">
+                <div id="sidebarContainerMobile"></div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Main -->
+                <main class="col-lg-10 px-4 py-4">
+                    <a
+                        href="../students.html"
+                        class="btn btn btn-outline-secondary mb-3"
+                        >&larr; Back to Students</a
+                    >
+
+                    <!-- Student Info -->
+                    <div class="card shadow-sm mb-4">
+                        <div
+                            class="card-body d-flex flex-column gap-3 border rounded"
+                        >
+                            <div class="d-flex gap-5 align-items-center">
+                                <p class="mb-1 text-muted col-3">
+                                    <strong>Id:</strong>
+                                    <span id="studentId"></span>
+                                </p>
+                                <p class="mb-1 text-muted">
+                                    <strong>Name:</strong>
+                                    <span id="studentName"></span>
+                                </p>
+                            </div>
+
+                            <div class="d-flex gap-5 align-content-center">
+                                <p class="mb-1 text-muted col-3">
+                                    <strong>Faculty:</strong>
+                                    <span id="studentFaculty"></span>
+                                </p>
+                                <p class="mb-1 text-muted">
+                                    <strong>Department:</strong>
+                                    <span id="studentDepartment"></span>
+                                </p>
+                                <p class="mb-1 text-muted">
+                                    <strong>Level:</strong>
+                                    <span id="studentLevel"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <section class="card shadow-sm mb-4">
+                        <div
+                            class="card-header bg-white fw-bold text-hu-primary d-flex justify-content-between align-items-center"
+                        >
+                            <p class="h4">Quick Summary</p>
+                            <p>
+                                <strong>total complaints:</strong>
+                                <span id="complaintCount"></span>
+                            </p>
+                        </div>
+                        <div
+                            class="card-body d-flex justify-content-between align-items-center gap-3"
+                        >
+                            <div class="card-pending card p-2">
+                                <p class="card_header">pending</p>
+                                <p
+                                    class="card-text text-end h4"
+                                    id="pending_complaint"
+                                ></p>
+                            </div>
+                            <div class="card-in_progress card p-2">
+                                <p class="card_header">in progress</p>
+                                <p
+                                    class="card-text text-end h4"
+                                    id="in_progress_complaint"
+                                ></p>
+                            </div>
+                            <div class="card-resolved card p-2">
+                                <p class="card_header">resolved</p>
+                                <p
+                                    class="card-text text-end h4"
+                                    id="resolved_complaint"
+                                ></p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Complaints Table -->
+                    <div class="card shadow-sm border rounded">
+                        <div
+                            class="card-header bg-white fw-bold text-hu-primary"
+                        >
+                            Complaints Overview
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>title</th>
+                                            <th>assigned to</th>
+                                            <th>status</th>
+                                            <th>date</th>
+                                            <th>action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="complaintTableBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+                <!-- Sidebar -->
+                <aside class="col-lg-2 d-none d-lg-block p-0">
+                    <div id="sidebarContainer"></div>
+                </aside>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="/public/admin/js/main.js"></script>
+        <script src="/public/admin/js/student-view.js"></script>
+    </body>
+</html>

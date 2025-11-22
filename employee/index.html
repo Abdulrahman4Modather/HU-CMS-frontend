@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>نظام الشكاوى - لوحة الإدارة</title>
+        <link rel="stylesheet" href="/public/employee/style.css" />
+    </head>
+
+    <body>
+        <div id="toast-message" class="toast-message hidden">
+            <i class="fas fa-check-circle"></i> <span></span>
+        </div>
+
+        <div id="dashboard-page" class="page active-page">
+            <header class="dashboard-header">
+                <div class="user-info">
+                    hello, <span id="staff-username">staff</span>
+                    <i class="fas fa-robot staff-icon"></i>
+                </div>
+            </header>
+
+            <aside class="sidebar">
+                <nav>
+                    <ul>
+                        <li
+                            id="nav-home"
+                            class="active"
+                            onclick="showSection('home')"
+                        >
+                            <i class="fas fa-home"></i> home
+                        </li>
+                        <li
+                            id="nav-complaints"
+                            onclick="showSection('my-complaints')"
+                        >
+                            <i class="fas fa-clipboard-list"></i> my complaints
+                        </li>
+                        <li
+                            id="nav-account"
+                            onclick="showSection('my-account')"
+                        >
+                            <i class="fas fa-user-cog"></i> my account
+                        </li>
+                        <li id="nav-signout" onclick="signOut()">
+                            <i class="fas fa-sign-out-alt"></i> sign out
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main class="content">
+                <section id="home-section" class="main-section active-section">
+                    <div class="section-content-wrapper">
+                        <div class="quick_summary">
+                            <h2>Quick summary</h2>
+                            <p>
+                                Total complaints
+                                <span id="total-complaints"></span>
+                            </p>
+                        </div>
+                        <div class="summary-cards">
+                            <div class="card in-progress">
+                                in progress
+                                <span id="in-progress-complaints"></span>
+                            </div>
+                            <div class="card pending">
+                                pending
+                                <span id="pending-complaints"></span>
+                            </div>
+                            <div class="card new-complaints">
+                                new complaints
+                                <span class="new-complaints"></span>
+                            </div>
+                        </div>
+
+                        <h3>most recent</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>title</th>
+                                    <th>student name</th>
+                                    <th>date</th>
+                                    <th>status</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="my-complaints-section" class="main-section hidden">
+                    <div class="section-content-wrapper">
+                        <h2>all complaints</h2>
+                        <div class="filter-controls">
+                            <label>filter</label>
+                            <label for="student-id-filter"
+                                >student ID/Name</label
+                            >
+                            <input
+                                type="text"
+                                id="student-id-filter"
+                                placeholder="Enter a value"
+                            />
+
+                            <label for="date-range-filter">date</label>
+                            <input type="date" id="date-from" />
+                            -
+                            <input type="date" id="date-to" />
+
+                            <label for="status-filter">status</label>
+                            <select id="status-filter">
+                                <option>no-status</option>
+                                <option>pending</option>
+                                <option>in progress</option>
+                                <option>resolved</option>
+                            </select>
+                        </div>
+
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>title</th>
+                                    <th>student name</th>
+                                    <th>date</th>
+                                    <th>status</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="my-account-section" class="main-section hidden">
+                    <div class="section-content-wrapper">
+                        <h2>My Account</h2>
+                        <div class="account-form">
+                            <label for="staff-id">staff id</label>
+                            <input type="text" id="staff-id" readonly />
+
+                            <label for="staff-name">name</label>
+                            <input type="text" id="staff-name" readonly />
+
+                            <label for="staff-email">email</label>
+                            <input type="text" id="staff-email" readonly />
+
+                            <label for="staff-faculty">faculty</label>
+                            <input type="text" id="staff-faculty" readonly />
+
+                            <label for="staff-department">department</label>
+                            <input type="text" id="staff-department" readonly />
+
+                            <label for="staff-role">role</label>
+                            <input type="text" id="staff-role" readonly />
+
+                            <label for="staff-phone">phone number</label>
+                            <input type="text" id="staff-phone" />
+
+                            <label for="current-password"
+                                >Current password</label
+                            >
+                            <div class="password-wrapper">
+                                <input type="password" id="current-password" />
+                            </div>
+
+                            <label for="new-password">New password</label>
+                            <div class="password-wrapper">
+                                <input type="password" id="new-password" />
+                            </div>
+
+                            <div class="account-form-footer">
+                                <button
+                                    class="save-btn"
+                                    onclick="saveAccountChanges()"
+                                >
+                                    save
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <div id="complaint-details-page" class="page hidden">
+            <header class="dashboard-header">
+                <div class="user-info">
+                    hello, staff
+                    <i class="fas fa-robot staff-icon"></i>
+                </div>
+            </header>
+
+            <div class="details-container">
+                <div class="details-box">
+                    <div class="detail-row header-row">
+                        <span>status:</span>
+                        <span>date:</span>
+                        <span>id:</span>
+                    </div>
+                    <div class="detail-row header-row">
+                        <span>level:</span>
+                        <span>department:</span>
+                        <span>student id:</span>
+                        <span>student name:</span>
+                    </div>
+                    <div class="detail-row name-row">
+                        <span>complaint title:</span>
+                    </div>
+                    <div class="detail-row full-width">
+                        <span>:complaint details</span>
+                        <p id="det-details"></p>
+                    </div>
+
+                    <div id="reply-section" class="reply-section hidden">
+                        <div class="reply-header">
+                            <span
+                                class="reply-date"
+                                id="last-reply-date"
+                            ></span>
+                            <span>reply</span>
+                        </div>
+                        <div class="reply-content">
+                            <p id="last-reply-text"></p>
+                        </div>
+                        <button
+                            class="close-complaint-btn"
+                            onclick="closeComplaint()"
+                        >
+                            close complaint
+                        </button>
+                    </div>
+
+                    <div class="actions-bar">
+                        <button
+                            class="action-btn call-student"
+                            onclick="callStudent()"
+                        >
+                            call student
+                        </button>
+                        <button
+                            class="action-btn redirect-btn"
+                            onclick="openRedirectModal()"
+                        >
+                            redirect
+                        </button>
+                        <button
+                            class="action-btn reply-btn"
+                            onclick="openReplyModal()"
+                        >
+                            reply
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="redirect-modal" class="modal hidden">
+            <div class="modal-content">
+                <h3 class="modal-title redirect-title">redirect</h3>
+                <div class="modal-body">
+                    <label class="radio-option">
+                        <input
+                            type="radio"
+                            name="redirect-to"
+                            value="dean"
+                            checked
+                        />
+                        dean
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="redirect-to" value="vice dean" />
+                        vice dean
+                    </label>
+                    <label class="radio-option">
+                        <input
+                            type="radio"
+                            name="redirect-to"
+                            value="professor"
+                        />
+                        professor
+                    </label>
+                </div>
+                <div class="modal-footer">
+                    <button
+                        class="modal-btn cancel-btn"
+                        onclick="closeModal('redirect-modal')"
+                    >
+                        cancel
+                    </button>
+                    <button class="modal-btn send-btn" onclick="sendRedirect()">
+                        send
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="reply-modal" class="modal hidden">
+            <div class="modal-content">
+                <h3 class="modal-title reply-title">reply</h3>
+                <div class="modal-body">
+                    <textarea
+                        id="reply-text"
+                        placeholder="Enter a value"
+                    ></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button
+                        class="modal-btn cancel-btn"
+                        onclick="closeModal('reply-modal')"
+                    >
+                        cancel
+                    </button>
+                    <button class="modal-btn send-btn" onclick="sendReply()">
+                        send
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <script src="/public/employee/script.js"></script>
+    </body>
+</html>

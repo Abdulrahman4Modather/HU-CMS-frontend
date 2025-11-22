@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Complaints — HU CMS</title>
+
+        <link href="/public/admin/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="/public/admin/css/all.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/public/admin/css/style.css" />
+
+        <script src="/public/admin/js/bootstrap.bundle.min.js"></script>
+        <script src="/public/admin/js/all.min.js"></script>
+    </head>
+
+    <body>
+        <!-- Header -->
+        <div id="headerContainer"></div>
+
+        <!--  Mobile Sidebar -->
+        <div
+            class="offcanvas bg-hu-dark offcanvas-end"
+            tabindex="-1"
+            id="offcanvasSidebar"
+            aria-labelledby="offcanvasSidebarLabel"
+        >
+            <div class="offcanvas-header">
+                <h5
+                    class="offcanvas-title text-white"
+                    id="offcanvasSidebarLabel"
+                >
+                    Menu
+                </h5>
+                <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"
+                ></button>
+            </div>
+            <div class="offcanvas-body p-0">
+                <div id="sidebarContainerMobile"></div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Main -->
+                <main
+                    class="col-lg-10 container d-lg-block p-4 bg-hu-light gap-5"
+                >
+                    <div class="row mb-2">
+                        <h1>Complaints</h1>
+                    </div>
+
+                    <!-- Search & Filter -->
+                    <section class="row p-2 bg-white border border-3 rounded-4">
+                        <div class="search_filter d-flex flex-column gap-2">
+                            <div class="input-group d-flex gap-2">
+                                <p class="input-group-text col-1 m-auto">
+                                    Search:
+                                </p>
+                                <input
+                                    type="text"
+                                    id="search-input"
+                                    class="form-control"
+                                    placeholder="Search by complaint ID, title, student name, or staff name..."
+                                />
+                            </div>
+
+                            <div class="input-group d-flex gap-2">
+                                <p class="input-group-text col-1 m-auto">
+                                    Filter:
+                                </p>
+                                <select id="status-filter" class="form-select">
+                                    <option value="">All Statuses</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="In Progress">
+                                        In Progress
+                                    </option>
+                                    <option value="Resolved">Resolved</option>
+                                </select>
+                                <select id="faculty-filter" class="form-select">
+                                    <option value="">All Faculties</option>
+                                </select>
+                                <select
+                                    id="department-filter"
+                                    class="form-select"
+                                >
+                                    <option value="">All Departments</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Complaints Table -->
+                    <div class="row equal-row mt-3 gap-3 d-flex">
+                        <section
+                            class="col-12 col-lg p-2 bg-white border border-3 rounded-4 d-flex flex-column justify-content-between gap-1"
+                        >
+                            <div class="table container">
+                                <table class="table">
+                                    <thead>
+                                        <th>id</th>
+                                        <th>title</th>
+                                        <th>student</th>
+                                        <th>assigned to</th>
+                                        <th>status</th>
+                                        <th>date</th>
+                                        <th>action</th>
+                                    </thead>
+                                    <tbody id="complaints-table-body"></tbody>
+                                </table>
+                            </div>
+                        </section>
+                    </div>
+                </main>
+
+                <!-- Sidebar -->
+                <aside class="col-lg-2 d-none d-lg-block p-0">
+                    <div id="sidebarContainer"></div>
+                </aside>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="/public/admin/js/main.js"></script>
+        <script src="/public/admin/js/complaints.js"></script>
+    </body>
+</html>

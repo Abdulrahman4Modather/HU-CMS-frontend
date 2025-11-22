@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>HU — Complaint System (Admin Dashboard)</title>
+
+        <link href="/public/admin/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="/public/admin/css/all.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/public/admin/css/style.css" />
+
+        <script src="/public/admin/js/bootstrap.bundle.min.js"></script>
+        <script src="/public/admin/js/all.min.js"></script>
+        <script src="/public/admin/js/chart.umd.min.js"></script>
+    </head>
+
+    <body>
+        <!-- Header -->
+        <div id="headerContainer"></div>
+
+        <!-- Sidebar -->
+        <div
+            class="offcanvas bg-hu-dark offcanvas-end"
+            tabindex="-1"
+            id="offcanvasSidebar"
+            aria-labelledby="offcanvasSidebarLabel"
+        >
+            <div class="offcanvas-header">
+                <h5
+                    class="offcanvas-title text-white"
+                    id="offcanvasSidebarLabel"
+                >
+                    Menu
+                </h5>
+                <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"
+                ></button>
+            </div>
+            <div class="offcanvas-body p-0">
+                <div id="sidebarContainerMobile"></div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Main -->
+                <main
+                    class="col-lg-10 container d-lg-block p-4 bg-hu-light gap-5"
+                >
+                    <div class="row mb-2">
+                        <h1>Admin Dashboard</h1>
+                    </div>
+
+                    <!-- Summary -->
+                    <section
+                        class="summary row bg-white border border-3 rounded-4"
+                    >
+                        <div class="d-flex justify-content-between p-2">
+                            <h4>Quick Summary</h4>
+                            <p class="fw-bold text-hu-primary">
+                                <strong>total complaints:</strong>
+                                <span id="complaintCount"></span>
+                            </p>
+                        </div>
+                        <div
+                            class="d-flex justify-content-between gap-3 mb-2"
+                        >
+                            <div class="card-pending card p-2">
+                                <p class="card_header">pending</p>
+                                <p
+                                    class="card-text text-end h4"
+                                    id="pending_complaint"
+                                ></p>
+                            </div>
+                            <div class="card-in_progress card p-2">
+                                <p class="card_header">in progress</p>
+                                <p
+                                    class="card-text text-end h4"
+                                    id="in_progress_complaint"
+                                ></p>
+                            </div>
+                            <div class="card-resolved card p-2">
+                                <p class="card_header">resolved</p>
+                                <p
+                                    class="card-text text-end h4"
+                                    id="resolved_complaint"
+                                ></p>
+                            </div>
+                    </section>
+
+                    <div class="row equal-row mt-3 gap-3 d-flex">
+
+                        <!-- Chart -->
+                        <section
+                            class="col-12 col-lg-4 p-2 bg-white border border-3 rounded-4 d-flex flex-column justify-content-between gap-1"
+                        >
+                            <h4>Complaints per Faculty</h4>
+                            <div class="chart container">
+                                <canvas id="complaintsByFacultyChart"></canvas>
+                            </div>
+                        </section>
+
+                        <!-- Recent Complaints -->
+                        <section
+                            class="col-12 col-lg p-2 bg-white border border-3 rounded-4 d-flex flex-column justify-content-between gap-1"
+                        >
+                            <h4>Recent Complaints</h4>
+                            <div class="table container">
+                                <table class="table">
+                                    <thead>
+                                        <th>id</th>
+                                        <th>title</th>
+                                        <th>status</th>
+                                        <th>date</th>
+                                        <th>action</th>
+                                    </thead>
+                                    <tbody id="recent-complaints-body"></tbody>
+                                </table>
+                            </div>
+                        </section>
+                    </div>
+                </main>
+
+                <!-- Sidebar -->
+                <aside class="col-lg-2 d-none d-lg-block p-0">
+                    <div id="sidebarContainer"></div>
+                </aside>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="/public/admin/js/main.js"></script>
+        <script src="/public/admin/js/dashboard.js"></script>
+    </body>
+</html>

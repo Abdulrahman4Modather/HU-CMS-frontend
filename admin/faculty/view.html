@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Faculty Profile — HU CMS</title>
+
+        <!-- Bootstrap + Icons + Chart.js -->
+
+        <link href="/public/admin/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="/public/admin/css/all.min.css" rel="stylesheet" />
+        <link href="/public/admin/css/style.css" rel="stylesheet" />
+
+        <script src="/public/admin/js/bootstrap.bundle.min.js"></script>
+        <script src="/public/admin/js/all.min.js"></script>
+        <script src="/public/admin/js/chart.umd.min.js"></script>
+    </head>
+    <body>
+        <!-- Header -->
+        <div id="headerContainer"></div>
+
+        <div
+            class="offcanvas bg-hu-dark offcanvas-end"
+            tabindex="-1"
+            id="offcanvasSidebar"
+            aria-labelledby="offcanvasSidebarLabel"
+        >
+            <div class="offcanvas-header">
+                <h5
+                    class="offcanvas-title text-white"
+                    id="offcanvasSidebarLabel"
+                >
+                    Menu
+                </h5>
+                <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"
+                ></button>
+            </div>
+            <div class="offcanvas-body p-0">
+                <div id="sidebarContainerMobile"></div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Main -->
+                <main class="col-lg-10 px-4 py-4">
+                    <a
+                        href="../faculties.html"
+                        class="btn btn btn-outline-secondary mb-3"
+                        >&larr; Back to Faculties</a
+                    >
+
+                    <!-- Faculty Info -->
+                    <div class="card shadow-sm mb-4">
+                        <div
+                            class="card-body d-flex align-items-center gap-3 border rounded"
+                        >
+                            <div>
+                                <h3 id="facultyName"></h3>
+                                <p class="mb-1 text-muted">
+                                    <strong>Dean:</strong>
+                                    <span id="facultyDean"></span>
+                                </p>
+                                <p class="mb-1 text-muted">
+                                    <strong>Vice Dean:</strong>
+                                    <span id="facultyViceDean"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KPI cards -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-4">
+                            <div class="card kpi-card info p-3">
+                                <h6 class="text-muted mb-1">Departments</h6>
+                                <h3 id="deptCount"></h3>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card kpi-card success p-3">
+                                <h6 class="text-muted mb-1">Total Students</h6>
+                                <h3 id="studentCount"></h3>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card kpi-card danger p-3">
+                                <h6 class="text-muted mb-1">
+                                    Total Complaints
+                                </h6>
+                                <h3 id="complaintCount"></h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chart -->
+                    <div class="card shadow-sm mb-4 border rounded">
+                        <div
+                            class="card-header bg-white fw-bold text-hu-primary"
+                        >
+                            Complaint Distribution by Department
+                        </div>
+                        <div class="card-body">
+                            <canvas id="complaintChart" height="120"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Departments Table -->
+                    <div class="card shadow-sm border rounded">
+                        <div class="card-header bg-white fw-bold">
+                            Departments Overview
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Department Name</th>
+                                            <th>Head</th>
+                                            <th>Students</th>
+                                            <th>Complaints</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="deptTableBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+                <!-- Sidebar -->
+                <aside class="col-lg-2 d-none d-lg-block p-0">
+                    <div id="sidebarContainer"></div>
+                </aside>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="/public/admin/js/main.js"></script>
+        <script src="/public/admin/js/faculty-view.js"></script>
+    </body>
+</html>
