@@ -11,10 +11,10 @@ let replys = [];
 let employeeComplaints = [];
 let currentComplaintId = null;
 
-// Utility: safe get current employee id from sessionStorage.currentUser
+// Utility: safe get current employee id from localStorage.currentUser
 function getCurrentEmployeeId() {
     try {
-        const user = JSON.parse(sessionStorage.getItem("currentUser") || "{}");
+        const user = JSON.parse(localStorage.getItem("currentUser") || "{}");
         return user && (user.id || user.email)
             ? String(user.id || user.email)
             : null;
@@ -44,7 +44,7 @@ function showSection(sectionId) {
 
 function saveAccountChanges() {
     try {
-        const user = JSON.parse(sessionStorage.getItem("currentUser") || "{}");
+        const user = JSON.parse(localStorage.getItem("currentUser") || "{}");
         if (!user || !user.id) {
             showToast("User not found in session", "Error");
             return;
@@ -127,7 +127,7 @@ function saveAccountChanges() {
 // Load and display employee account information
 function loadEmployeeAccount() {
     try {
-        const user = JSON.parse(sessionStorage.getItem("currentUser") || "{}");
+        const user = JSON.parse(localStorage.getItem("currentUser") || "{}");
         if (!user || !user.id) return;
 
         // Find the employee in the loaded employees array
@@ -507,25 +507,32 @@ function showComplaintDetails(id) {
 
     // reply
 
-
     // Try to find a saved reply for this complaint in the replies dataset
-    const foundReply = (Array.isArray(replys) ? replys : []).find((r) =>
-        String(r.complaintId || r.complaintID || r.id || "").toLowerCase() ===
-        String(complaint.id || "").toLowerCase()
+    const foundReply = (Array.isArray(replys) ? replys : []).find(
+        (r) =>
+            String(
+                r.complaintId || r.complaintID || r.id || ""
+            ).toLowerCase() === String(complaint.id || "").toLowerCase()
     );
 
     // Also allow an inline reply stored on the complaint object (from sendReply)
-    const inlineReplyText = complaint && (complaint.reply || complaint.lastReply || null);
+    const inlineReplyText =
+        complaint && (complaint.reply || complaint.lastReply || null);
 
     const replySection = document.getElementById("reply-section");
     if (foundReply || inlineReplyText) {
         const lastReplyText = document.getElementById("last-reply-text");
         const lastReplyDate = document.getElementById("last-reply-date");
-        const text = foundReply ? (foundReply.text || foundReply.reply || "") : inlineReplyText;
-    if (lastReplyText) lastReplyText.textContent = text || "";
-    // prefer stored reply date when available
-    const replyDateStr = foundReply && foundReply.date ? foundReply.date : new Date().toLocaleString();
-    if (lastReplyDate) lastReplyDate.textContent = replyDateStr;
+        const text = foundReply
+            ? foundReply.text || foundReply.reply || ""
+            : inlineReplyText;
+        if (lastReplyText) lastReplyText.textContent = text || "";
+        // prefer stored reply date when available
+        const replyDateStr =
+            foundReply && foundReply.date
+                ? foundReply.date
+                : new Date().toLocaleString();
+        if (lastReplyDate) lastReplyDate.textContent = replyDateStr;
         if (replySection) replySection.classList.remove("hidden");
     } else {
         if (replySection) replySection.classList.add("hidden");
@@ -580,7 +587,7 @@ function callStudent() {
     const student = (students || []).find(
         (s) => String(s.id) === String(complaint.studentId)
     );
-    
+
     const phone = student ? student.phone || "" : "";
     if (phone) alert(`جاري الاتصال بالطالب... رقم الهاتف: ${phone}`);
 }
@@ -632,7 +639,9 @@ function sendReply() {
     replys.push(newReply);
     try {
         const existing = JSON.parse(localStorage.getItem("replys") || "[]");
-        const merged = Array.isArray(existing) ? existing.concat([newReply]) : [newReply];
+        const merged = Array.isArray(existing)
+            ? existing.concat([newReply])
+            : [newReply];
         localStorage.setItem("replys", JSON.stringify(merged));
     } catch (e) {
         console.warn("Failed to persist reply to localStorage", e);
@@ -661,9 +670,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             fetch("/storage/faculties.json").then((r) =>
                 r.ok ? r.json() : []
             ),
-            fetch("/storage/replys.json").then((r) =>
-                r.ok ? r.json() : []
-            ),
+            fetch("/storage/replys.json").then((r) => (r.ok ? r.json() : [])),
         ]);
         employees = Array.isArray(res[0]) ? res[0] : [];
         students = Array.isArray(res[1]) ? res[1] : [];
@@ -728,7 +735,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Display staff username in header
     try {
-        const user = JSON.parse(sessionStorage.getItem("currentUser") || "{}");
+        const user = JSON.parse(localStorage.getItem("currentUser") || "{}");
         if (user) {
             const nameEl = document.getElementById("staff-username");
             if (nameEl) {
