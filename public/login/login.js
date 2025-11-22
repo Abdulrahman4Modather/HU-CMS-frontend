@@ -42,14 +42,14 @@ document
                 }
             } catch (fetchErr) {
                 // network or file fetch error; proceed with empty users and try local fallbacks below
-                console.warn('Could not fetch', dataFile, fetchErr);
+                console.warn("Could not fetch", dataFile, fetchErr);
                 users = [];
             }
 
             // Merge any locally-saved users for this role (signup/registration fallback)
-            if (role === 'student') {
+            if (role === "student") {
                 try {
-                    const stored = localStorage.getItem('students');
+                    const stored = localStorage.getItem("students");
                     if (stored) {
                         const parsed = JSON.parse(stored);
                         if (Array.isArray(parsed)) {
@@ -58,11 +58,11 @@ document
                         }
                     }
                 } catch (err) {
-                    console.warn('Failed to parse local students', err);
+                    console.warn("Failed to parse local students", err);
                 }
-            } else if (role === 'employee') {
+            } else if (role === "employee") {
                 try {
-                    const stored = localStorage.getItem('employees');
+                    const stored = localStorage.getItem("employees");
                     if (stored) {
                         const parsed = JSON.parse(stored);
                         if (Array.isArray(parsed)) {
@@ -71,11 +71,11 @@ document
                         }
                     }
                 } catch (err) {
-                    console.warn('Failed to parse local employees', err);
+                    console.warn("Failed to parse local employees", err);
                 }
-            } else if (role === 'admin') {
+            } else if (role === "admin") {
                 try {
-                    const stored = localStorage.getItem('admins');
+                    const stored = localStorage.getItem("admins");
                     if (stored) {
                         const parsed = JSON.parse(stored);
                         if (Array.isArray(parsed)) {
@@ -84,12 +84,12 @@ document
                         }
                     }
                 } catch (err) {
-                    console.warn('Failed to parse local admins', err);
+                    console.warn("Failed to parse local admins", err);
                 }
             }
 
             let user = null;
-            if (role === "admin") {
+            if (role) {
                 user = users.find(
                     (u) => (u.id || "").toLowerCase() === email.toLowerCase()
                 );
@@ -128,17 +128,20 @@ document
                 name: user.name || user.email,
             };
             localStorage.setItem("currentUser", JSON.stringify(userToStore));
-            if (role === 'student') {
-                localStorage.setItem('student', JSON.stringify(user));
+            if (role === "student") {
+                localStorage.setItem("student", JSON.stringify(user));
                 // Load complaints into localStorage
                 try {
-                    const resp = await fetch('/storage/complaints.json');
+                    const resp = await fetch("/storage/complaints.json");
                     if (resp && resp.ok) {
                         const complaints = await resp.json();
-                        localStorage.setItem('complaints', JSON.stringify(complaints));
+                        localStorage.setItem(
+                            "complaints",
+                            JSON.stringify(complaints)
+                        );
                     }
                 } catch (fetchErr) {
-                    console.warn('Could not fetch complaints.json', fetchErr);
+                    console.warn("Could not fetch complaints.json", fetchErr);
                 }
             }
 

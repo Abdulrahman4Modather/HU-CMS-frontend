@@ -12,6 +12,7 @@
     font-family: Al-Mohanad;
     src: url('/public/fonts/Al-Mohanad_Bold/Al-Mohanad_Bold.ttf') format('tff');
 }
+
 /* For Arabic support */
 
 * {
@@ -113,7 +114,6 @@ header {
     font-size: 16px;
 }
 
-
 .roles_container {
     display: flex;
     justify-content: space-between;
@@ -193,17 +193,10 @@ header {
     color: #1fb6d3;
 }
 
-/* Error message for forms */
-.error-message {
-    color: #c62828; /* red */
-    text-align: center;
-    margin-top: 12px;
-    font-weight: 600;
-}
-
 /* Success message for forms */
 .success-message {
-    color: #2e7d32; /* green */
+    color: #2e7d32;
+    /* green */
     text-align: center;
     margin-top: 12px;
     font-weight: 600;
