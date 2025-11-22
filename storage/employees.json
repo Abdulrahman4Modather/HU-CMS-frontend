@@ -1,0 +1,92 @@
+[
+    {
+        "id": "E1",
+        "name": "Dr. Ahmed Mahmoud",
+        "email": "a.mahmoud@hu.edu",
+        "phone": "123-456-7890",
+        "role": "Dean",
+        "departmentId": "D1",
+        "pass": "pass1"
+    },
+    {
+        "id": "E2",
+        "name": "Dr. Fatima Ali",
+        "email": "f.ali@hu.edu",
+        "phone": "123-456-7890",
+        "role": "Dean",
+        "departmentId": "D3",
+        "pass": "pass2"
+    },
+    {
+        "id": "E3",
+        "name": "Prof. Youssef Hassan",
+        "email": "y.hassan@hu.edu",
+        "phone": "123-456-7890",
+        "role": "Head of Department",
+        "departmentId": "D1",
+        "pass": "pass3"
+    },
+    {
+        "id": "E4",
+        "name": "Dr. Mona Said",
+        "email": "m.said@hu.edu",
+        "phone": "123-456-7890",
+        "role": "Head of Department",
+        "departmentId": "D2",
+        "pass": "pass4"
+    },
+    {
+        "id": "E5",
+        "name": "Prof. Khalid Ibrahim",
+        "email": "k.ibrahim@hu.edu",
+        "phone": "123-456-7890",
+        "role": "Professor",
+        "departmentId": "D3",
+        "pass": "pass5"
+    },
+    {
+        "id": "E6",
+        "name": "Nour Adel",
+        "email": "n.adel@hu.edu",
+        "phone": "123-456-7890",
+        "role": "Vice Dean",
+        "departmentId": "D1",
+        "pass": "pass6"
+    },
+    {
+        "id": "E7",
+        "name": "Omar Sherif",
+        "email": "o.sherif@hu.edu",
+        "phone": "123-456-7890",
+        "role": "Vice Dean",
+        "departmentId": "D2",
+        "pass": "pass7"
+    },
+    {
+        "id": "E8",
+        "name": "Laila Fathy",
+        "email": "l.fathy@hu.edu",
+        "phone": "123-456-7890",
+        "role": "Vice Dean",
+        "departmentId": "D3",
+        "pass": "pass8"
+    },
+    {
+        "id": "E9",
+        "name": "Sara Nabil",
+        "email": "sara.N@hu.edu",
+        "phone": "123-456-7890",
+        "role": "Professor",
+        "departmentId": "D1",
+        "pass": "pass9"
+    },
+    {
+        "id": "E10",
+        "name": "Tamer Zaki",
+        "email": "t.zaki@hu.edu",
+        "phone": "123-456-7890",
+        "role": "Professor",
+        "departmentId": "D2",
+        "pass": "pass10"
+    }
+]

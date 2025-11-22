@@ -1,0 +1,152 @@
+[
+    {
+        "id": "S1001",
+        "name": "Amina Khalil",
+        "email": "student1001@hu.edu",
+        "phone": "22222222",
+        "departmentId": "D2",
+        "facultyId": "F1",
+        "level": "1",
+        "pass": "student1"
+    },
+    {
+        "id": "S1002",
+        "name": "Omar Hassan",
+        "email": "student1002@hu.edu",
+        "phone": "666666666",
+        "departmentId": "D3",
+        "facultyId": "F2",
+        "level": "1",
+        "pass": "student2"
+    },
+    {
+        "id": "S1003",
+        "name": "Layla Adel",
+        "email": "student1003@hu.edu",
+        "phone": "999999999",
+        "departmentId": "D1",
+        "facultyId": "F1",
+        "level": "2",
+        "pass": "student3"
+    },
+    {
+        "id": "S1004",
+        "name": "Khaled Ibrahim",
+        "email": "student1004@hu.edu",
+        "phone": "545412121",
+        "departmentId": "D2",
+        "facultyId": "F1",
+        "level": "3",
+        "pass": "student4"
+    },
+    {
+        "id": "S1005",
+        "name": "Fatima Youssef",
+        "email": "student1005@hu.edu",
+        "phone": "10655578",
+        "departmentId": "D3",
+        "facultyId": "F2",
+        "level": "2",
+        "pass": "student5"
+    },
+    {
+        "id": "S1006",
+        "name": "Youssef Ali",
+        "email": "student1006@hu.edu",
+        "phone": "48541512",
+        "departmentId": "D1",
+        "facultyId": "F1",
+        "level": "1",
+        "pass": "student6"
+    },
+    {
+        "id": "S1007",
+        "name": "Hana Sherif",
+        "email": "student1007@hu.edu",
+        "phone": "445121212",
+        "departmentId": "D2",
+        "facultyId": "F1",
+        "level": "1",
+        "pass": "student7"
+    },
+    {
+        "id": "S1008",
+        "name": "Mohamed Said",
+        "email": "student1008@hu.edu",
+        "phone": "55551000",
+        "departmentId": "D3",
+        "facultyId": "F2",
+        "level": "3",
+        "pass": "student8"
+    },
+    {
+        "id": "S1009",
+        "name": "Nour Tarek",
+        "email": "student1009@hu.edu",
+        "phone": "41212323",
+        "departmentId": "D1",
+        "facultyId": "F1",
+        "level": "4",
+        "pass": "student9"
+    },
+    {
+        "id": "S1010",
+        "name": "Ahmed Mansour",
+        "email": "student1010@hu.edu",
+        "phone": "15410020",
+        "departmentId": "D2",
+        "facultyId": "F1",
+        "level": "2",
+        "pass": "student10"
+    },
+    {
+        "id": "S1011",
+        "name": "Sara Gamal",
+        "email": "student1011@hu.edu",
+        "phone": "55541100",
+        "departmentId": "D3",
+        "facultyId": "F2",
+        "level": "4",
+        "pass": "student11"
+    },
+    {
+        "id": "S1012",
+        "name": "Tarek Mohamed",
+        "email": "student1012@hu.edu",
+        "phone": "591205154",
+        "departmentId": "D1",
+        "facultyId": "F1",
+        "level": "4",
+        "pass": "student12"
+    },
+    {
+        "id": "S1013",
+        "name": "Dina Ahmed",
+        "email": "student1013@hu.edu",
+        "phone": "415420544",
+        "departmentId": "D2",
+        "facultyId": "F1",
+        "level": "2",
+        "pass": "student13"
+    },
+    {
+        "id": "S1014",
+        "name": "Ibrahim Ali",
+        "email": "student1014@hu.edu",
+        "phone": "18484120",
+        "departmentId": "D3",
+        "facultyId": "F2",
+        "level": "3",
+        "pass": "student14"
+    },
+    {
+        "id": "S1015",
+        "name": "Mona Khaled",
+        "email": "student1015@hu.edu",
+        "phone": "154065487",
+        "departmentId": "D1",
+        "facultyId": "F1",
+        "level": "4",
+        "pass": "student15"
+    }
+]

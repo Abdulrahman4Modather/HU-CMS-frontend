@@ -1,0 +1,15 @@
+[
+    {
+        "id": "D1",
+        "name": "Computer Science",
+        "facultyId": "F1",
+        "headId": "E3"
+    },
+    {
+        "id": "D2",
+        "name": "Mechanical Engineering",
+        "facultyId": "F1",
+        "headId": "E4"
+    },
+    { "id": "D3", "name": "Physics", "facultyId": "F2", "headId": "E5" }
+]

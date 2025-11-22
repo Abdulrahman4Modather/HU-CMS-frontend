@@ -1,0 +1,152 @@
+[
+    {
+        "id": "C2001",
+        "studentId": "S1001",
+        "employeeId": "E6",
+        "departmentId": "D2",
+        "title": "Issue with lab equipment",
+        "description": "",
+        "status": "Resolved",
+        "date": "2023-11-01"
+    },
+    {
+        "id": "C2002",
+        "studentId": "S1002",
+        "employeeId": "E7",
+        "departmentId": "D3",
+        "title": "Grading error in Physics II",
+        "description": "",
+        "status": "In Progress",
+        "date": "2023-11-02"
+    },
+    {
+        "id": "C2003",
+        "studentId": "S1003",
+        "employeeId": "E6",
+        "departmentId": "D1",
+        "title": "Cannot access online portal",
+        "description": "",
+        "status": "In Progress",
+        "date": "2023-11-03"
+    },
+    {
+        "id": "C2004",
+        "studentId": "S1004",
+        "employeeId": "E7",
+        "departmentId": "D2",
+        "title": "Unsafe conditions in workshop",
+        "description": "",
+        "status": "Pending",
+        "date": "2023-11-04"
+    },
+    {
+        "id": "C2005",
+        "studentId": "S1005",
+        "employeeId": "E6",
+        "departmentId": "D3",
+        "title": "Library book unavailable",
+        "description": "",
+        "status": "Resolved",
+        "date": "2023-11-05"
+    },
+    {
+        "id": "C2006",
+        "studentId": "S1006",
+        "employeeId": "E7",
+        "departmentId": "D1",
+        "title": "Wi-Fi not working in Building A",
+        "description": "",
+        "status": "In Progress",
+        "date": "2023-11-06"
+    },
+    {
+        "id": "C2007",
+        "studentId": "S1007",
+        "employeeId": "E6",
+        "departmentId": "D2",
+        "title": "Incorrect fee statement",
+        "description": "",
+        "status": "In Progress",
+        "date": "2023-11-07"
+    },
+    {
+        "id": "C2008",
+        "studentId": "S1008",
+        "employeeId": "E7",
+        "departmentId": "D3",
+        "title": "Request for course material",
+        "description": "",
+        "status": "Pending",
+        "date": "2023-11-08"
+    },
+    {
+        "id": "C2009",
+        "studentId": "S1009",
+        "employeeId": "E6",
+        "departmentId": "D1",
+        "title": "Registration system down",
+        "description": "",
+        "status": "Resolved",
+        "date": "2023-11-09"
+    },
+    {
+        "id": "C2010",
+        "studentId": "S1010",
+        "employeeId": "E7",
+        "departmentId": "D2",
+        "title": "Bullying incident report",
+        "description": "",
+        "status": "In Progress",
+        "date": "2023-11-10"
+    },
+    {
+        "id": "C2011",
+        "studentId": "S1001",
+        "employeeId": "E6",
+        "departmentId": "D2",
+        "title": "Follow-up on lab equipment",
+        "description": "",
+        "status": "In Progress",
+        "date": "2023-11-11"
+    },
+    {
+        "id": "C2012",
+        "studentId": "S1002",
+        "employeeId": "E7",
+        "departmentId": "D3",
+        "title": "Cafeteria food quality",
+        "description": "",
+        "status": "Pending",
+        "date": "2023-11-12"
+    },
+    {
+        "id": "C2013",
+        "studentId": "S1003",
+        "employeeId": "E6",
+        "departmentId": "D1",
+        "title": "Professor missed a lecture",
+        "description": "",
+        "status": "Resolved",
+        "date": "2023-11-13"
+    },
+    {
+        "id": "C2014",
+        "studentId": "S1004",
+        "employeeId": "E7",
+        "departmentId": "D2",
+        "title": "Broken chair in lecture hall",
+        "description": "",
+        "status": "In Progress",
+        "date": "2023-11-14"
+    },
+    {
+        "id": "C2015",
+        "studentId": "S1005",
+        "employeeId": "E6",
+        "departmentId": "D3",
+        "title": "Suggestion for new club",
+        "description": "",
+        "status": "In Progress",
+        "date": "2023-11-15"
+    }
+]

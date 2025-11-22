@@ -1,0 +1,14 @@
+[
+    {
+        "id": "F1",
+        "name": "Faculty of Engineering",
+        "deanId": "E1",
+        "viceDeanId": "E6"
+    },
+    {
+        "id": "F2",
+        "name": "Faculty of Science",
+        "deanId": "E2",
+        "viceDeanId": "E7"
+    }
+]

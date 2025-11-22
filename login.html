@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login - شكوتي</title>
+        <link rel="stylesheet" href="public/login/style.css" />
+    </head>
+    <body>
+        <header>
+            <div class="header-content">
+                <img src="public/images/HU-logo.png" alt="University Logo" class="logo" />
+                <h1>شكوتي</h1>
+            </div>
+        </header>
+
+        <main class="form-container">
+            <form id="loginForm" class="form-box">
+                <h3>Login</h3>
+
+                <label for="emailInput">Email / ID</label>
+                <input type="text" id="emailInput" required />
+
+                <label>Login as</label>
+                <div class="roles_container">
+                    <label
+                        ><input
+                            type="radio"
+                            name="role"
+                            value="student"
+                            required
+                            checked
+                        />
+                        Student</label
+                    >
+                    <label
+                        ><input
+                            type="radio"
+                            name="role"
+                            value="employee"
+                            required
+                        />
+                        Employee</label
+                    >
+
+                    <label
+                        ><input
+                            type="radio"
+                            name="role"
+                            value="admin"
+                            required
+                        />
+                        Admin</label
+                    >
+                </div>
+
+                <label for="passwordInput">Password</label>
+                <div class="password-container">
+                    <input type="password" id="passwordInput" />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Login</button>
+
+                <div class="signup_container">
+                    <a href="signup.html">Student Sign Up</a>
+                </div>
+
+                <p id="errorMsg" class="error-message"></p>
+            </form>
+        </main>
+
+        <script src="public/login/login.js"></script>
+    </body>
+</html>

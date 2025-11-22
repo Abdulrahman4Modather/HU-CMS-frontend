@@ -1,0 +1,20 @@
+[
+    {
+        "id": "R1001",
+        "complaintId": "C2001",
+        "date": "2023-11-01",
+        "text": "The lab equipment issue has been resolved. Please check and confirm."
+    },
+    {
+        "id": "R1002",
+        "complaintId": "C2009",
+        "date": "2024-11-03",
+        "text": "The system is now running"
+    },
+    {
+        "id": "R1003",
+        "complaintId": "C20013",
+        "date": "2023-12-01",
+        "text": "the professer has been asked, and he is currently under investigation"
+    }
+]

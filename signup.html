@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sign Up - شكوتي</title>
+        <link rel="stylesheet" href="public/login/style.css" />
+    </head>
+
+    <body>
+        <header>
+            <div class="header-content">
+                <img
+                    src="public/images/HU-logo.png"
+                    alt="University Logo"
+                    class="logo"
+                />
+                <h1>شكوتي</h1>
+            </div>
+        </header>
+
+        <main class="form-container">
+            <form id="signupForm" class="form-box">
+                <h3>Student Sign Up</h3>
+
+                <label for="name">Name</label>
+                <input type="text" id="name" required />
+
+                <label for="collegeId">College ID</label>
+                <input type="text" id="collegeId" required />
+
+                <label for="faculty">Faculty</label>
+                <select id="faculty" class="form-select">
+                    <option value="">Select Faculty</option>
+                </select>
+
+                <label for="department">Department</label>
+                <select id="department" class="form-select">
+                    <option value="">Select Department</option>
+                </select>
+
+                <label for="level">Level</label>
+                <select id="level" class="form-select">
+                    <option value="">Select Level</option>
+                    <option value="1">Freshmen 1</option>
+                    <option value="2">Sophomore 2</option>
+                    <option value="3">Junior 3</option>
+                    <option value="4">Senior 4</option>
+                </select>
+                
+                <label for="phoneNumber">Phone Number</label>
+                <input type="text" id="phoneNumber" required />
+
+                <label for="password">Password</label>
+                <input type="password" id="password" required />
+
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" required />
+
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+
+                <p
+                    id="successMsg"
+                    class="success-message"
+                    style="display: none"
+                ></p>
+                <p id="errorMsg" class="error-message"></p>
+            </form>
+        </main>
+
+        <script src="/public/login/signup.js"></script>
+    </body>
+</html>

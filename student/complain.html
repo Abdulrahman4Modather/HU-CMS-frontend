@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Complaints Dashboard</title>
+        <link rel="stylesheet" href="/public/student/style.css" />
+    </head>
+
+    <body>
+        <div class="app-header">
+            <button class="btn-logout" onclick="logout()">Log out</button>
+            <div class="user-info">
+                <span>hello, username</span>
+                <div class="user-avatar"></div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div id="complaints-view" class="dashboard-section">
+                <table
+                    class="complaints-table"
+                    id="complaints-table"
+                    style="display: none"
+                >
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>name</th>
+                            <th>date</th>
+                            <th>status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+                <div id="no-complaints-message" class="no-complaints">
+                    you've no complaint
+                </div>
+            </div>
+
+            <div
+                id="new-complaint-dialog"
+                class="dialog-overlay"
+                style="display: none"
+            >
+                <div class="dialog-box">
+                    <h2>new complaint</h2>
+                    <label>name</label>
+                    <input type="text" id="complaint-name" />
+
+                    <label>description</label>
+                    <textarea id="complaint-description" rows="5"></textarea>
+
+                    <div class="dialog-actions">
+                        <button
+                            class="btn btn-transparent"
+                            onclick="closeNewComplaintDialog()"
+                        >
+                            cancel
+                        </button>
+                        <button
+                            class="btn btn-primary"
+                            onclick="submitComplaint()"
+                        >
+                            send
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn-create-new" onclick="openNewComplaintDialog()">
+            &plus; create new
+        </button>
+
+        <script src="/public/student/script.js"></script>
+    </body>
+</html>
