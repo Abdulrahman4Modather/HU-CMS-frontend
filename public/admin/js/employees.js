@@ -27,6 +27,19 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // If there are locally-saved employees (from department edits), prefer them
     try {
+        const storedComplaints = localStorage.getItem("complaints");
+        if (storedComplaints) {
+            const parsed = JSON.parse(storedComplaints);
+            if (Array.isArray(parsed)) {
+                // mutate the fetched employees array in-place so downstream code uses updated roles
+                complaints.splice(0, complaints.length, ...parsed);
+            }
+        }
+    } catch (err) {
+        console.warn("Could not parse stored complaints", err);
+    }
+    // If there are locally-saved employees (from department edits), prefer them
+    try {
         const storedEmployees = localStorage.getItem("employees");
         if (storedEmployees) {
             const parsed = JSON.parse(storedEmployees);

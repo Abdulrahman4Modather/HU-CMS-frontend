@@ -6,10 +6,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     // get the necessary data
-    const [employees, students, complaints] = await Promise.all([
+    const [employees, students, complaints, replys] = await Promise.all([
         fetch("/storage/employees.json").then((res) => res.json()),
         fetch("/storage/students.json").then((res) => res.json()),
         fetch("/storage/complaints.json").then((res) => res.json()),
+        fetch("/storage/replys.json").then((res) => res.json()),
     ]);
 
     const complaint = complaints.find((c) => c.id === complaintId);
@@ -32,6 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         (e) => e.id === complaint.employeeId
     );
     const complaintStudent = students.find((s) => s.id === complaint.studentId);
+    const complaintReply = replys.find((r) => r.complaintId === complaint.id);
 
     document.getElementById("complaintId").innerHTML += `${complaint.id}`;
     document.getElementById("complaintTitle").innerHTML += `${complaint.title}`;
@@ -51,4 +53,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     ).innerHTML += `<a href="/admin/employee/view.html?id=${encodeURIComponent(
         assignedEmployee.id
     )}">${assignedEmployee ? assignedEmployee.name : "N/A"}`;
+
+    document.getElementById(
+        "complaintDescription"
+    ).innerHTML += `${complaint.description}`;
+
+    document.getElementById(
+        "complaintReply"
+    ).innerHTML += `${complaintReply.text}`;
 });

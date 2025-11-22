@@ -102,4 +102,27 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
 
     renderTable(complaintData);
+
+    const deleteStudentForm = document.getElementById("delete-student-form");
+    const deleteStudentModalEl = document.getElementById("deleteStudentModal");
+
+    const deleteStudentModal = new bootstrap.Modal(deleteStudentModalEl);
+
+    if (deleteStudentForm) {
+        deleteStudentForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            // push into raw faculties array
+            const newstudents = students.filter((s) => s.id != studentId);
+
+            localStorage.setItem("students", JSON.stringify(newstudents));
+
+            deleteStudentModal.hide();
+            deleteStudentForm.reset();
+
+            setTimeout(() => {
+                window.location.href = "/admin/students.html";
+            });
+        });
+    }
 });

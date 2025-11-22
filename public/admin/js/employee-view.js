@@ -160,4 +160,27 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
 
     renderTable(complaintData);
+
+    const deleteEmployeeForm = document.getElementById("delete-employee-form");
+    const deleteEmployeeModalEl = document.getElementById("deleteEmployeeModal");
+
+    const deleteEmployeeModal = new bootstrap.Modal(deleteEmployeeModalEl);
+
+    if (deleteEmployeeForm) {
+        deleteEmployeeForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            // push into raw faculties array
+            const newemployees = employees.filter((e) => e.id != employeeId);
+
+            localStorage.setItem("Employees", JSON.stringify(newemployees));
+
+            deleteEmployeeModal.hide();
+            deleteEmployeeForm.reset();
+
+            setTimeout(() => {
+                window.location.href = "/admin/employees.html";
+            });
+        });
+    }
 });

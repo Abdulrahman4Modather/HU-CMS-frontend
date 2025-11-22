@@ -30,4 +30,27 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     document.getElementById("adminId").innerHTML += `${admin.id}`;
     document.getElementById("adminName").innerHTML += `${admin.name}`;
+
+    const deleteAdminForm = document.getElementById("delete-admin-form");
+    const deleteAdminModalEl = document.getElementById("deleteAdminModal");
+
+    const deleteAdminModal = new bootstrap.Modal(deleteAdminModalEl);
+
+    if (deleteAdminForm) {
+        deleteAdminForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            // push into raw faculties array
+            const newadmins = admins.filter((a) => a.id != adminId);
+
+            localStorage.setItem("admins", JSON.stringify(newadmins));
+
+            deleteAdminModal.hide();
+            deleteAdminForm.reset();
+
+            setTimeout(() => {
+                window.location.href = "/admin/admins.html";
+            });
+        });
+    }
 });

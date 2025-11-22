@@ -18,8 +18,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         ]);
 
     // Get complaints from local storage and merge them
-    const localComplaints = JSON.parse(localStorage.getItem('complaints')) || [];
-    complaints = [...complaints, ...localComplaints.filter(lc => !complaints.find(c => c.id === lc.id))];
+    const localComplaints =
+        JSON.parse(localStorage.getItem("complaints")) || [];
+    complaints = [
+        ...complaints,
+        ...localComplaints.filter(
+            (lc) => !complaints.find((c) => c.id === lc.id)
+        ),
+    ];
 
     // Populate filters
     faculties.forEach((f) => {
